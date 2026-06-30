@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HeYYou — Custom windsurfing sails, handmade on Bonaire</title>
+<meta name="description" content="High-performance custom windsurfing sails, cut and stitched by hand on the island of Bonaire by PWA pro freestyler Youp Schmit.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23c8ff00'/%3E%3Ctext x='50' y='73' font-family='Arial,sans-serif' font-size='66' font-weight='bold' text-anchor='middle' fill='%23000'%3EY%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top" aria-label="HeYYou home">He<span>Y</span>You</a>
+  <nav class="nav__links">
+    <a href="#maker">Maker</a>
+    <a href="#craft">Craft</a>
+    <a href="#action">In action</a>
+    <a class="nav__cta" href="#contact">Order a sail</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <img src="assets/img/hero-trick.png" alt="" class="hero__img" id="hero-img">
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__copy">
+      <p class="eyebrow">HeYYou · Bonaire</p>
+      <h1 class="hero__title">Custom windsurf sails,<br>handmade on Bonaire.</h1>
+      <p class="hero__sub">High-performance freestyle and wave sails, cut and stitched one at a time by pro windsurfer Youp Schmit.</p>
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="#contact">Order your sail</a>
+        <a class="btn btn--ghost" href="#craft">See the craft</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span></span>scroll</div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement" id="statement">
+    <p class="statement__line" data-reveal>
+      Not a factory. <span class="muted">A workshop.</span>
+    </p>
+    <p class="statement__big" data-reveal>
+      Every HeYYou sail is cut, stitched and tuned by hand by the rider who competes on them.
+    </p>
+  </section>
+
+  <!-- SAIL 3D -->
+  <section class="sail3d" id="sail3d">
+    <div class="sail3d__stage">
+      <canvas id="sail-canvas"></canvas>
+      <div class="sail3d__copy">
+        <p class="eyebrow">The sail</p>
+        <h2 class="h2">Every panel,<br>by hand.</h2>
+        <p class="body">Carbon scrim, a clear monofilm window, neon panels and full-length battens, stitched one at a time. Scroll to turn it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAKER -->
+  <section class="maker" id="maker">
+    <div class="maker__media" data-reveal>
+      <img src="assets/img/photos/youp-shaka.jpg" alt="Youp Schmit with a finished HeYYou sail in his Bonaire workshop" loading="lazy">
+    </div>
+    <div class="maker__body">
+      <p class="eyebrow" data-reveal>The maker</p>
+      <h2 class="h2" data-reveal>Youp Schmit</h2>
+      <p class="lead" data-reveal>
+        PWA World Tour freestyler. Back in 2013 he invented the DoubleAirCulo, still one of the
+        hardest moves in the sport. Today he builds the sails he rides, on the island that taught him to ride.
+      </p>
+      <p class="body" data-reveal>
+        Bonaire is his home spot and his test lab. What works on the water at Sorobon and Red Slave
+        is what gets stitched into the next sail. His team riders, like Bjorn Saragoza, push them just as hard.
+      </p>
+      <div class="stats">
+        <div class="stat" data-reveal><span class="stat__num" data-count="1">0</span><span class="stat__label">trick invented<br>DoubleAirCulo, 2013</span></div>
+        <div class="stat" data-reveal><span class="stat__num">PWA</span><span class="stat__label">World Tour<br>freestyle</span></div>
+        <div class="stat" data-reveal><span class="stat__num">100%</span><span class="stat__label">handmade<br>on Bonaire</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRAFT -->
+  <section class="craft" id="craft">
+    <div class="craft__head">
+      <p class="eyebrow" data-reveal>The craft</p>
+      <h2 class="h2" data-reveal>From a roll of film<br>to a finished rig.</h2>
+      <p class="body" data-reveal>Monofilm, carbon scrim and neon panels, measured, cut, and stitched on the workshop floor. No two sails leave the same.</p>
+    </div>
+    <div class="craft__grid">
+      <figure class="craft__cell craft__cell--tall" data-reveal data-parallax><img src="assets/img/photos/youp-sewing.jpg" alt="Youp stitching a neon panel" loading="lazy"><figcaption>Stitching the leech</figcaption></figure>
+      <figure class="craft__cell" data-reveal data-parallax><img src="assets/img/photos/sail-detail.jpg" alt="Close-up of carbon scrim and monofilm window" loading="lazy"><figcaption>Carbon, film, zigzag</figcaption></figure>
+      <figure class="craft__cell" data-reveal data-parallax><img src="assets/img/photos/youp-rolling.jpg" alt="Feeding a panel through the long-arm machine" loading="lazy"><figcaption>The long-arm machine</figcaption></figure>
+      <figure class="craft__cell craft__cell--wide" data-reveal data-parallax><img src="assets/img/photos/team-rigging.jpg" alt="Youp and Bjorn rigging a finished sail" loading="lazy"><figcaption>Tuning a finished rig</figcaption></figure>
+      <figure class="craft__cell" data-reveal data-parallax><img src="assets/img/photos/youp-rig-yellow.jpg" alt="A rigged neon sail in the workshop" loading="lazy"><figcaption>Off the floor, onto the water</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- IN ACTION -->
+  <section class="action" id="action">
+    <div class="action__head">
+      <p class="eyebrow" data-reveal>In action</p>
+      <h2 class="h2" data-reveal>Built to be thrown.</h2>
+    </div>
+    <div class="action__feature" data-reveal>
+      <div class="vframe vframe--big">
+        <video data-trick src="assets/video/double-spock-sunset.mp4" muted loop playsinline preload="metadata"></video>
+      </div>
+      <div class="action__caption">
+        <h3 class="h3">Shovit Double Spock</h3>
+        <p class="body">Golden hour at Sorobon. Seven seconds, two rotations, one sail that holds the load.</p>
+      </div>
+    </div>
+    <div class="action__row">
+      <figure class="vframe" data-reveal><video data-trick src="assets/video/doubleairculo.mp4" muted loop playsinline preload="metadata"></video><figcaption>DoubleAirCulo</figcaption></figure>
+      <figure class="vframe" data-reveal><video data-trick src="assets/video/no-handed-burner.mp4" muted loop playsinline preload="metadata"></video><figcaption>No-handed Burner</figcaption></figure>
+      <figure class="vframe" data-reveal><video data-trick src="assets/video/shovit-spock-rain.mp4" muted loop playsinline preload="metadata"></video><figcaption>Shovit-Spock, rain squall</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- FULL RIG -->
+  <section class="rig" id="rig">
+    <div class="rig__copy">
+      <p class="eyebrow" data-reveal>The complete setup</p>
+      <h2 class="h2" data-reveal>HeYYou sail.<br>Flikka board.</h2>
+      <p class="body" data-reveal>The sail is ours, built on Bonaire. Paired with Flikka freestyle boards, it is the exact rig Youp competes on. Nothing on this page is a prototype. It all gets ridden.</p>
+      <p class="credit" data-reveal>Boards by <a href="https://www.instagram.com/flikkaboards/" target="_blank" rel="noopener">@flikkaboards</a></p>
+    </div>
+    <div class="rig__media" data-reveal>
+      <img src="assets/img/photos/handshake.jpg" alt="Youp and team rider Bjorn Saragoza in the HeYYou workshop" loading="lazy">
+    </div>
+  </section>
+
+  <!-- LIMITED EDITION -->
+  <section class="limited" id="limited">
+    <video class="limited__bg" data-trick src="assets/video/freestyle-limited-edition.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <div class="limited__overlay"></div>
+    <div class="limited__copy">
+      <p class="eyebrow" data-reveal>Freestyle, limited</p>
+      <h2 class="display" data-reveal>Limited Edition sails.</h2>
+      <p class="body" data-reveal>A small run of custom freestyle sails, made to order in the colors and sizes you ride. When they are gone, they are gone.</p>
+      <a class="btn btn--solid" href="#contact" data-reveal>Reserve yours</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <video class="contact__bg" data-trick src="assets/video/sunset-sorobon.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <div class="contact__overlay"></div>
+    <div class="contact__inner">
+      <p class="eyebrow" data-reveal>Let's build your sail</p>
+      <h2 class="display" data-reveal>Tell us what you ride.</h2>
+      <p class="lead" data-reveal>Send your size, style and home spot. Youp gets back to you himself.</p>
+      <div class="contact__actions" data-reveal>
+        <a class="btn btn--solid" href="https://wa.me/" data-contact="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/heyyousails/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn--ghost" href="mailto:" data-contact="email">Email</a>
+      </div>
+      <p class="contact__loc" data-reveal>Made on Bonaire, Dutch Caribbean</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__brand">He<span>Y</span>You</div>
+  <div class="footer__meta">
+    <p>Custom windsurfing sails, handmade on Bonaire.</p>
+    <p class="footer__credits">Footage by @vividvprod, @kumamovie, @oneosevenmediahouse, @floristils. Boards by @flikkaboards.</p>
+    <p class="footer__copy">© <span id="year"></span> HeYYou Sails. All rights reserved.</p>
+  </div>
+</footer>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
