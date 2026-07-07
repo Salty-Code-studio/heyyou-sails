@@ -159,14 +159,16 @@ function initCraft() {
 
     const next = cards[i + 1];
 
-    // As `next` rises from below to cover `card`, shrink + dim `card`.
+    // As `next` rises to cover `card`, gently shrink + dim `card`. The dim only
+    // starts once `next` is well up the viewport, so the card you are reading
+    // stays bright and legible, and the receded state never goes dark.
     gsap.to(card, {
-      scale: 0.9,
-      filter: 'brightness(0.65)',
+      scale: 0.97,
+      filter: 'brightness(0.86)',
       ease: 'none',
       scrollTrigger: {
         trigger: next,
-        start: 'top bottom',   // next card's top hits viewport bottom
+        start: 'top 42%',      // hold full brightness until next card is 42% up the viewport
         end: 'top top',        // next card reaches the pinned position
         scrub: true,
         invalidateOnRefresh: true,
@@ -415,16 +417,27 @@ function initContact(){
     var keys = Object.keys(errs);
     if (keys.length){ field(keys[0]).focus(); return; }
 
+    // Route the message to Youp via a pre-filled WhatsApp deep-link.
+    var name = field("name").value.trim();
+    var email = field("email").value.trim();
+    var msg = field("message").value.trim();
+    var text = "Hi Youp! I'm interested in a HeYYou sail.\n\n"
+             + "Name: " + name + "\n"
+             + "Email: " + email + "\n\n"
+             + "My setup:\n" + msg;
+    var waUrl = "https://wa.me/5997821269?text=" + encodeURIComponent(text);
+
     submitBtn.disabled = true;
-    if (submitLabel) submitLabel.textContent = "Sending…";
+    if (submitLabel) submitLabel.textContent = "Opening WhatsApp…";
+    window.open(waUrl, "_blank", "noopener");
     setTimeout(function(){
       form.reset();
       form.classList.add("hidden");
       success.classList.remove("hidden");
       success.classList.add("flex");
       submitBtn.disabled = false;
-      if (submitLabel) submitLabel.textContent = "Send it to Youp";
-    }, 700);
+      if (submitLabel) submitLabel.textContent = "Send on WhatsApp";
+    }, 500);
   });
 
   if (resetBtn){

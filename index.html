@@ -39,10 +39,9 @@
   <div class="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10 py-5">
     <a href="#top" class="font-display text-xl font-bold tracking-[-0.02em] text-text">He<span class="text-lime">Y</span>You</a>
     <nav class="flex items-center gap-6 md:gap-8">
-      <a href="#make" class="hidden md:inline text-sm text-muted hover:text-text transition-colors">Make</a>
       <a href="#maker" class="hidden md:inline text-sm text-muted hover:text-text transition-colors">Maker</a>
       <a href="#craft" class="hidden md:inline text-sm text-muted hover:text-text transition-colors">Craft</a>
-      <a href="#action" class="hidden md:inline text-sm text-muted hover:text-text transition-colors">In action</a>
+      <a href="#action" class="hidden md:inline text-sm text-muted hover:text-text transition-colors">Workshop</a>
       <a href="#contact" class="inline-flex items-center rounded-full bg-lime text-black font-display font-semibold text-sm px-4 py-2 transition-transform hover:-translate-y-0.5">Order a sail</a>
     </nav>
   </div>
@@ -50,17 +49,33 @@
 
 <main>
 <section id="hero" class="relative isolate min-h-screen overflow-hidden bg-bg">
-  <!-- Animated aurora/mesh backdrop (.aurora styled in the shell) -->
-  <div class="aurora pointer-events-none absolute inset-0 -z-10" aria-hidden="true"></div>
-
-  <!-- Legibility + handoff scrims: focus the center, melt the bottom into the page -->
-  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
-    <div class="absolute inset-0 bg-[radial-gradient(120%_90%_at_50%_38%,rgba(6,6,8,0.35)_0%,rgba(6,6,8,0.05)_46%,transparent_72%)]"></div>
-    <div class="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent to-bg"></div>
+  <!-- Video wall backdrop: real trick clips as vertical panels, cut on a diagonal -->
+  <div class="hero-wall pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="hero-wall-grid">
+      <video class="hero-vid" autoplay muted loop playsinline preload="metadata" poster="assets/img/posters/doubleairculo.jpg">
+        <source src="assets/video/doubleairculo.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-vid" autoplay muted loop playsinline preload="metadata" poster="assets/img/posters/no-handed-burner.jpg">
+        <source src="assets/video/no-handed-burner.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-vid" autoplay muted loop playsinline preload="metadata" poster="assets/img/posters/shovit-spock-rain.jpg">
+        <source src="assets/video/shovit-spock-rain.mp4" type="video/mp4" />
+      </video>
+      <video class="hero-vid" autoplay muted loop playsinline preload="metadata" poster="assets/img/posters/double-spock-sunset.jpg">
+        <source src="assets/video/double-spock-sunset.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <!-- Legibility scrims: keep the nav readable up top, sink the lower-left where the headline lives -->
+    <div class="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/85 to-transparent"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(105deg,rgba(6,6,8,0.94)_0%,rgba(6,6,8,0.72)_32%,rgba(6,6,8,0.24)_58%,rgba(6,6,8,0.5)_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-bg via-bg/55 to-transparent"></div>
   </div>
 
+  <!-- Lime hairline riding the diagonal cut -->
+  <div class="hero-cut pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
   <!-- Composition -->
-  <div class="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-center px-6 md:px-10 py-24 md:py-36" data-stagger>
+  <div class="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 md:px-10 pt-32 pb-28 md:pb-36" data-stagger>
     <div class="max-w-4xl">
       <!-- Eyebrow -->
       <p class="reveal font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime" style="transition-delay:60ms">
@@ -93,8 +108,8 @@
     </div>
   </div>
 
-  <!-- Scroll cue, bottom-left -->
-  <div class="reveal pointer-events-none absolute bottom-8 left-6 z-10 flex items-center gap-3 md:left-10" style="transition-delay:460ms" aria-hidden="true">
+  <!-- Scroll cue, bottom-right -->
+  <div class="reveal pointer-events-none absolute bottom-8 right-6 z-10 hidden items-center gap-3 md:right-10 md:flex" style="transition-delay:460ms" aria-hidden="true">
     <span class="hero-scroll-line block h-10 w-px overflow-hidden bg-line">
       <span class="hero-scroll-run block h-3 w-px bg-lime"></span>
     </span>
@@ -102,70 +117,7 @@
   </div>
 </section>
 
-<section id="make" class="relative overflow-hidden">
-  <div class="mx-auto grid max-w-[1400px] grid-cols-1 gap-x-12 gap-y-14 px-6 py-24 md:grid-cols-12 md:px-10 md:py-36">
-    <!-- Left: sticky statement -->
-    <div class="md:col-span-5">
-      <div class="md:sticky md:top-28">
-        <p class="reveal font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime">What we make</p>
-        <h2 class="reveal mt-6 font-display font-semibold tracking-[-0.03em] leading-[1.0] text-4xl md:text-5xl lg:text-6xl">
-          Four ways to get
-          <br />
-          <span class="text-lime">lit up</span> on the water.
-        </h2>
-        <p class="reveal mt-6 max-w-sm text-base text-muted md:text-lg">
-          Every sail is cut and sewn by hand on Bonaire by Youp Schmit. Pick a line, or bring us your size, your style, your colors.
-        </p>
-      </div>
-    </div>
-
-    <!-- Right: numbered ledger -->
-    <div class="md:col-span-7">
-      <ul data-stagger>
-        <!-- 01 -->
-        <li class="group border-t border-line">
-          <div class="reveal grid grid-cols-[auto_1fr] gap-x-6 py-8 md:gap-x-10">
-            <span class="font-mono text-2xl md:text-3xl leading-none pt-1 text-muted transition-colors duration-300 group-hover:text-lime">01</span>
-            <div>
-              <h3 class="font-display text-2xl md:text-3xl font-medium tracking-[-0.02em] text-text transition-colors duration-300 group-hover:text-lime">Freestyle sails</h3>
-              <p class="mt-2 max-w-md text-sm md:text-base text-muted">Built for the moves that made Youp. Light, explosive, and quick to load. Born on Sorobon.</p>
-            </div>
-          </div>
-        </li>
-        <!-- 02 -->
-        <li class="group border-t border-line">
-          <div class="reveal grid grid-cols-[auto_1fr] gap-x-6 py-8 md:gap-x-10">
-            <span class="font-mono text-2xl md:text-3xl leading-none pt-1 text-muted transition-colors duration-300 group-hover:text-lime">02</span>
-            <div>
-              <h3 class="font-display text-2xl md:text-3xl font-medium tracking-[-0.02em] text-text transition-colors duration-300 group-hover:text-lime">Wave sails</h3>
-              <p class="mt-2 max-w-md text-sm md:text-base text-muted">Loose in the hands, stable in the gust. Tuned for down-the-line drive off Red Slave.</p>
-            </div>
-          </div>
-        </li>
-        <!-- 03 -->
-        <li class="group border-t border-line">
-          <div class="reveal grid grid-cols-[auto_1fr] gap-x-6 py-8 md:gap-x-10">
-            <span class="font-mono text-2xl md:text-3xl leading-none pt-1 text-muted transition-colors duration-300 group-hover:text-lime">03</span>
-            <div>
-              <h3 class="font-display text-2xl md:text-3xl font-medium tracking-[-0.02em] text-text transition-colors duration-300 group-hover:text-lime">Freeride sails</h3>
-              <p class="mt-2 max-w-md text-sm md:text-base text-muted">Easy power, effortless glide. The sail that just wants to blast across the bay all afternoon.</p>
-            </div>
-          </div>
-        </li>
-        <!-- 04 -->
-        <li class="group border-y border-line">
-          <div class="reveal grid grid-cols-[auto_1fr] gap-x-6 py-8 md:gap-x-10">
-            <span class="font-mono text-2xl md:text-3xl leading-none pt-1 text-muted transition-colors duration-300 group-hover:text-lime">04</span>
-            <div>
-              <h3 class="font-display text-2xl md:text-3xl font-medium tracking-[-0.02em] text-text transition-colors duration-300 group-hover:text-lime">Fully custom</h3>
-              <p class="mt-2 max-w-md text-sm md:text-base text-muted">Your size, your style, your colors. Handmade to spec, one at a time. This is the whole point.</p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+<!-- "What we make" text ledger removed per client request -->
 
 <section id="maker" class="relative overflow-hidden">
   <!-- Soft neon glows (adapted from the part's surf glows, recolored to HeYYou) -->
@@ -178,10 +130,10 @@
       <div aria-hidden="true" class="absolute -inset-4 -z-10 rounded-[1.75rem] bg-gradient-to-br from-[#27d3ff]/20 via-blue/15 to-lime/10 blur-2xl"></div>
       <figure class="group relative overflow-hidden rounded-2xl border border-line bg-surface aspect-[4/5]">
         <img
-          src="assets/img/photos/youp-shaka.jpg"
-          alt="Youp Schmit throwing a shaka on the beach at Bonaire"
+          src="assets/img/photos/youp-machine.jpg"
+          alt="Youp Schmit at the long-arm sewing machine in his Bonaire workshop"
           loading="lazy"
-          class="h-full w-full object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.05]"
+          class="h-full w-full object-cover object-top transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.05]"
         />
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent"></div>
       </figure>
@@ -331,76 +283,51 @@
   <!-- Header lives in normal flow above the pinned track -->
   <div class="mx-auto max-w-[1400px] px-6 md:px-10 pt-24 md:pt-36 pb-12 md:pb-16">
     <div class="max-w-2xl" data-stagger>
-      <p class="reveal font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime">In action</p>
-      <h2 class="reveal mt-4 font-display font-semibold tracking-[-0.03em] leading-[1.0] text-4xl md:text-6xl">Built to be thrown.</h2>
-      <p class="reveal mt-6 text-muted text-lg leading-relaxed max-w-xl">Every sail earns its place on the water. From the DoubleAirCulo to a sunset cruise off Sorobon, this is HeYYou under real load. Keep scrolling. The reel sweeps sideways.</p>
+      <p class="reveal font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime">In the workshop</p>
+      <h2 class="reveal mt-4 font-display font-semibold tracking-[-0.03em] leading-[1.0] text-4xl md:text-6xl">Where the sails are born.</h2>
+      <p class="reveal mt-6 text-muted text-lg leading-relaxed max-w-xl">No factory line, no shortcuts. Every sail is measured, cut, and stitched by hand on Bonaire, then tuned on the water it was built for. A look inside the bench.</p>
     </div>
   </div>
 
-  <!-- Pinned horizontal track: vertical scroll drives horizontal sweep -->
-  <div class="hy-hscroll relative">
-    <div class="hy-hscroll-track flex w-max h-full items-center gap-6 md:gap-8 px-6 md:px-10 pb-24 md:pb-32">
-
-      <!-- 01 -->
-      <article class="hy-hscroll-panel group relative flex-[0_0_auto] w-[74vw] sm:w-[52vw] md:w-[30vw] lg:w-[22vw] max-w-[420px] aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-line">
-        <video class="hy-vid w-full h-full object-cover" data-hscroll-parallax muted loop playsinline preload="metadata">
-          <source src="assets/video/doubleairculo.mp4" type="video/mp4" />
-        </video>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-        <span class="absolute left-4 top-4 font-mono text-[0.7rem] tracking-[0.2em] text-white/70">01</span>
-        <span class="absolute left-4 bottom-4 inline-flex items-center rounded-full border border-line bg-ink/70 backdrop-blur px-3 py-1.5 font-mono text-[0.72rem] tracking-[0.06em] text-lime">DoubleAirCulo</span>
-      </article>
-
-      <!-- 02 -->
-      <article class="hy-hscroll-panel group relative flex-[0_0_auto] w-[74vw] sm:w-[52vw] md:w-[30vw] lg:w-[22vw] max-w-[420px] aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-line">
-        <video class="hy-vid w-full h-full object-cover" data-hscroll-parallax muted loop playsinline preload="metadata">
-          <source src="assets/video/double-spock-sunset.mp4" type="video/mp4" />
-        </video>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-        <span class="absolute left-4 top-4 font-mono text-[0.7rem] tracking-[0.2em] text-white/70">02</span>
-        <span class="absolute left-4 bottom-4 inline-flex items-center rounded-full border border-line bg-ink/70 backdrop-blur px-3 py-1.5 font-mono text-[0.72rem] tracking-[0.06em] text-lime">Shovit Double Spock</span>
-      </article>
-
-      <!-- 03 -->
-      <article class="hy-hscroll-panel group relative flex-[0_0_auto] w-[74vw] sm:w-[52vw] md:w-[30vw] lg:w-[22vw] max-w-[420px] aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-line">
-        <video class="hy-vid w-full h-full object-cover" data-hscroll-parallax muted loop playsinline preload="metadata">
-          <source src="assets/video/shovit-spock-rain.mp4" type="video/mp4" />
-        </video>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-        <span class="absolute left-4 top-4 font-mono text-[0.7rem] tracking-[0.2em] text-white/70">03</span>
-        <span class="absolute left-4 bottom-4 inline-flex items-center rounded-full border border-line bg-ink/70 backdrop-blur px-3 py-1.5 font-mono text-[0.72rem] tracking-[0.06em] text-lime">Shovit-Spock, rain squall</span>
-      </article>
-
-      <!-- 04 -->
-      <article class="hy-hscroll-panel group relative flex-[0_0_auto] w-[74vw] sm:w-[52vw] md:w-[30vw] lg:w-[22vw] max-w-[420px] aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-line">
-        <video class="hy-vid w-full h-full object-cover" data-hscroll-parallax muted loop playsinline preload="metadata">
-          <source src="assets/video/no-handed-burner.mp4" type="video/mp4" />
-        </video>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-        <span class="absolute left-4 top-4 font-mono text-[0.7rem] tracking-[0.2em] text-white/70">04</span>
-        <span class="absolute left-4 bottom-4 inline-flex items-center rounded-full border border-line bg-ink/70 backdrop-blur px-3 py-1.5 font-mono text-[0.72rem] tracking-[0.06em] text-lime">No-handed Burner</span>
-      </article>
-
-      <!-- 05 -->
-      <article class="hy-hscroll-panel group relative flex-[0_0_auto] w-[74vw] sm:w-[52vw] md:w-[30vw] lg:w-[22vw] max-w-[420px] aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-line">
-        <video class="hy-vid w-full h-full object-cover" data-hscroll-parallax muted loop playsinline preload="metadata">
-          <source src="assets/video/freestyle-limited-edition.mp4" type="video/mp4" />
-        </video>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-        <span class="absolute left-4 top-4 font-mono text-[0.7rem] tracking-[0.2em] text-white/70">05</span>
-        <span class="absolute left-4 bottom-4 inline-flex items-center rounded-full border border-line bg-ink/70 backdrop-blur px-3 py-1.5 font-mono text-[0.72rem] tracking-[0.06em] text-lime">Freestyle, limited</span>
-      </article>
-
-      <!-- 06 -->
-      <article class="hy-hscroll-panel group relative flex-[0_0_auto] w-[74vw] sm:w-[52vw] md:w-[30vw] lg:w-[22vw] max-w-[420px] aspect-[9/16] rounded-2xl overflow-hidden bg-surface border border-line">
-        <video class="hy-vid w-full h-full object-cover" data-hscroll-parallax muted loop playsinline preload="metadata">
-          <source src="assets/video/sunset-sorobon.mp4" type="video/mp4" />
-        </video>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-        <span class="absolute left-4 top-4 font-mono text-[0.7rem] tracking-[0.2em] text-white/70">06</span>
-        <span class="absolute left-4 bottom-4 inline-flex items-center rounded-full border border-line bg-ink/70 backdrop-blur px-3 py-1.5 font-mono text-[0.72rem] tracking-[0.06em] text-lime">Sunset, Sorobon</span>
-      </article>
-
+  <!-- Workshop gallery: real photos, masonry -->
+  <div class="mx-auto max-w-[1400px] px-6 md:px-10 pb-24 md:pb-32">
+    <div class="hy-gallery reveal">
+      <figure class="hy-shot">
+        <img src="assets/img/photos/youp-sewing.jpg" alt="Youp stitching a sail panel by hand" loading="lazy" decoding="async">
+        <figcaption>Stitched by hand</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/team-rigging.jpg" alt="Rigging a HeYYou sail on the beach" loading="lazy" decoding="async">
+        <figcaption>Rigging up on Sorobon</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/sail-detail.jpg" alt="Close-up of a sail panel and seam" loading="lazy" decoding="async">
+        <figcaption>Panel detail</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/youp-shaka.jpg" alt="A hand pressing a seam on a blue and green HeYYou sail" loading="lazy" decoding="async">
+        <figcaption>Every seam, by hand</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/team-inspect.jpg" alt="Inspecting a finished sail" loading="lazy" decoding="async">
+        <figcaption>Final check</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/youp-rig-yellow.jpg" alt="Youp riding with a yellow HeYYou sail" loading="lazy" decoding="async">
+        <figcaption>Built for the wind it rides</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/youp-setup.jpg" alt="Setting up a rig on the beach" loading="lazy" decoding="async">
+        <figcaption>Setting up</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/youp-rolling.jpg" alt="Rolling a sail for transport" loading="lazy" decoding="async">
+        <figcaption>Rolled and ready</figcaption>
+      </figure>
+      <figure class="hy-shot">
+        <img src="assets/img/photos/handshake.jpg" alt="A handshake over a new sail order" loading="lazy" decoding="async">
+        <figcaption>Built on trust</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -502,7 +429,7 @@
     </div>
 
     <div class="mt-12 flex flex-wrap items-center gap-4 reveal">
-      <a href="#" class="inline-flex items-center gap-2 rounded-full bg-lime text-black font-display font-semibold px-6 py-3 transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime">
+      <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-lime text-black font-display font-semibold px-6 py-3 transition-transform hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime">
         Talk to Youp about a sail
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
@@ -572,7 +499,7 @@
         </p>
 
         <div class="mt-9 flex flex-wrap gap-3" data-stagger>
-          <a href="#" class="reveal inline-flex items-center gap-2 rounded-full bg-lime text-black font-display font-semibold px-6 py-3 transition-transform hover:-translate-y-0.5">
+          <a href="https://wa.me/5997821269?text=Hi%20Youp!%20I'm%20interested%20in%20a%20HeYYou%20sail." target="_blank" rel="noopener" class="reveal inline-flex items-center gap-2 rounded-full bg-lime text-black font-display font-semibold px-6 py-3 transition-transform hover:-translate-y-0.5">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.17 0 4.2.85 5.74 2.38a8.06 8.06 0 0 1 2.38 5.73c0 4.47-3.64 8.11-8.12 8.11a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.11.82.83-3.04-.19-.31a8.05 8.05 0 0 1-1.24-4.3c0-4.47 3.64-8.11 8.12-8.11Zm-2.35 4.4c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.32-.76-1.8-.2-.47-.4-.41-.54-.42h-.46Z"/></svg>
             WhatsApp
           </a>
@@ -580,7 +507,8 @@
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
             Instagram
           </a>
-          <a href="#" class="reveal inline-flex items-center gap-2 rounded-full border border-line text-text hover:border-lime hover:text-lime px-6 py-3 font-display font-semibold transition-colors">
+          <!-- TODO: swap href to mailto:youp@... once the HeYYou email is live. Points to the form for now. -->
+          <a href="#contact" class="reveal inline-flex items-center gap-2 rounded-full border border-line text-text hover:border-lime hover:text-lime px-6 py-3 font-display font-semibold transition-colors">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="h-5 w-5"><path d="M4 6.5 12 12l8-5.5M4.5 5h15a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Email
           </a>
@@ -620,7 +548,7 @@
             <div class="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
               <button type="submit" data-cf-submit
                 class="inline-flex items-center justify-center gap-2 rounded-full bg-lime text-black font-display font-semibold px-6 py-3 transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0">
-                <span data-cf-label>Send it to Youp</span>
+                <span data-cf-label>Send on WhatsApp</span>
                 <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" class="h-4 w-4">
                   <path d="M4 10h12m0 0-4.5-4.5M16 10l-4.5 4.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
@@ -638,9 +566,9 @@
                 <path d="m5 12.5 4 4 10-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
               </svg>
             </span>
-            <h3 class="mt-5 font-display font-semibold tracking-[-0.02em] text-xl text-text">On its way to the workshop.</h3>
+            <h3 class="mt-5 font-display font-semibold tracking-[-0.02em] text-xl text-text">WhatsApp is opening.</h3>
             <p class="mt-2 max-w-sm text-sm text-muted">
-              Thanks for reaching out. Youp gets back to you himself, usually within a day. Check your inbox, and the odd spam folder.
+              Your message is ready in WhatsApp. Hit send there and it lands straight with Youp, who gets back to you himself, usually within a day.
             </p>
             <button type="button" data-cf-reset
               class="mt-6 text-sm font-semibold text-lime underline-offset-4 transition-colors hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime">
