@@ -9,7 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23c8ff00'/%3E%3Ctext x='50' y='73' font-family='Arial,sans-serif' font-size='66' font-weight='bold' text-anchor='middle' fill='%23000'%3EY%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -37,7 +39,10 @@
 <body id="top" class="bg-bg text-text font-body antialiased">
 <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-colors duration-500">
   <div class="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10 py-5">
-    <a href="#top" class="font-display text-xl font-bold tracking-[-0.02em] text-text">He<span class="text-lime">Y</span>You</a>
+    <a href="#top" class="flex items-center gap-2.5">
+      <img src="assets/img/logo-white.png" alt="HeYYou logo" class="h-7 w-auto" />
+      <span class="font-display text-xl font-bold tracking-[-0.02em] text-text">He<span class="text-lime">Y</span>You</span>
+    </a>
     <nav class="flex items-center gap-6 md:gap-8">
       <a href="#maker" class="hidden md:inline text-sm text-muted hover:text-text transition-colors">Maker</a>
       <a href="#craft" class="hidden md:inline text-sm text-muted hover:text-text transition-colors">Craft</a>
@@ -56,7 +61,7 @@
         <source src="assets/video/doubleairculo.mp4" type="video/mp4" />
       </video>
       <video class="hero-vid" autoplay muted loop playsinline preload="metadata" poster="assets/img/posters/no-handed-burner.jpg">
-        <source src="assets/video/no-handed-burner.mp4" type="video/mp4" />
+        <source src="assets/video/no-handed-burner.mp4?v=2" type="video/mp4" />
       </video>
       <video class="hero-vid" autoplay muted loop playsinline preload="metadata" poster="assets/img/posters/shovit-spock-rain.jpg">
         <source src="assets/video/shovit-spock-rain.mp4" type="video/mp4" />
@@ -83,14 +88,14 @@
       </p>
 
       <!-- Headline -->
-      <h1 class="reveal mt-7 font-display font-semibold tracking-[-0.03em] leading-[1.0] text-text text-[clamp(2.6rem,8.5vw,7rem)]" style="transition-delay:140ms">
-        Custom windsurf sails,<br class="hidden sm:block" />
-        handmade on <span class="text-lime">Bonaire</span><span class="text-blue">.</span>
+      <h1 class="reveal mt-7 font-display font-semibold tracking-[-0.03em] leading-[1.02] text-text text-[clamp(2.2rem,6.7vw,5.25rem)]" style="transition-delay:140ms">
+        <span class="whitespace-nowrap">High-performance</span><br class="hidden sm:block" />
+        sails, handmade on <span class="text-lime">Bonaire</span><span class="text-blue">.</span>
       </h1>
 
       <!-- Subheadline -->
       <p class="reveal mt-8 max-w-2xl text-lg leading-relaxed text-muted md:text-xl" style="transition-delay:240ms">
-        High-performance freestyle and wave sails, cut and stitched one at a time by PWA World Tour pro Youp Schmit. Every panel is shaped by hand on the shores of Sorobon, tuned on the water it was built for.
+        Freestyle and wave sails, cut and stitched one at a time by PWA World Tour pro Youp Schmit. Handmade in windsurf paradise: Bonaire, in the Caribbean.
       </p>
 
       <!-- CTAs -->
@@ -130,8 +135,8 @@
       <div aria-hidden="true" class="absolute -inset-4 -z-10 rounded-[1.75rem] bg-gradient-to-br from-[#27d3ff]/20 via-blue/15 to-lime/10 blur-2xl"></div>
       <figure class="group relative overflow-hidden rounded-2xl border border-line bg-surface aspect-[4/5]">
         <img
-          src="assets/img/photos/youp-machine.jpg"
-          alt="Youp Schmit at the long-arm sewing machine in his Bonaire workshop"
+          src="assets/img/photos/youp-portrait.jpg"
+          alt="Youp Schmit on the water at Bonaire, carrying his rig"
           loading="lazy"
           class="h-full w-full object-cover object-top transition-transform duration-700 ease-out will-change-transform group-hover:scale-[1.05]"
         />
@@ -148,11 +153,11 @@
       </h2>
 
       <p class="reveal mt-6 text-lg leading-relaxed text-text/85">
-        PWA World Tour freestyler. He invented the DoubleAirCulo in 2013, still one of the hardest moves in the sport, and now builds the sails he rides, by hand, on Bonaire.
+        Youp rides on the PWA World Tour and, back in 2013, invented the DoubleAirCulo, still one of the hardest moves in freestyle. Today he builds the sails he rides himself, by hand, from his workshop on Bonaire.
       </p>
 
       <p class="reveal mt-4 text-base leading-relaxed text-muted">
-        Bonaire is his test lab. Team riders like Bjorn Saragoza push the sails just as hard as he does, so nothing leaves the workshop until it survives real Sorobon sessions.
+        He shapes and stitches every panel, then takes it straight onto the water to tune it. Team rider Bjorn Saragoza puts the sails through the same punishment, so nothing leaves the bench until it holds up in real Caribbean conditions.
       </p>
 
       <dl class="reveal mt-10 grid grid-cols-3 gap-6 border-t border-line pt-8">
@@ -280,54 +285,60 @@
 </section>
 
 <section id="action" class="relative bg-ink overflow-hidden">
-  <!-- Header lives in normal flow above the pinned track -->
-  <div class="mx-auto max-w-[1400px] px-6 md:px-10 pt-24 md:pt-36 pb-12 md:pb-16">
-    <div class="max-w-2xl" data-stagger>
-      <p class="reveal font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime">In the workshop</p>
-      <h2 class="reveal mt-4 font-display font-semibold tracking-[-0.03em] leading-[1.0] text-4xl md:text-6xl">Where the sails are born.</h2>
-      <p class="reveal mt-6 text-muted text-lg leading-relaxed max-w-xl">No factory line, no shortcuts. Every sail is measured, cut, and stitched by hand on Bonaire, then tuned on the water it was built for. A look inside the bench.</p>
-    </div>
-  </div>
+  <div class="mx-auto max-w-[1400px] px-6 md:px-10 py-24 md:py-36">
+    <div class="grid gap-10 md:grid-cols-12 md:gap-x-12">
 
-  <!-- Workshop gallery: real photos, masonry -->
-  <div class="mx-auto max-w-[1400px] px-6 md:px-10 pb-24 md:pb-32">
-    <div class="hy-gallery reveal">
-      <figure class="hy-shot">
-        <img src="assets/img/photos/youp-sewing.jpg" alt="Youp stitching a sail panel by hand" loading="lazy" decoding="async">
-        <figcaption>Stitched by hand</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/team-rigging.jpg" alt="Rigging a HeYYou sail on the beach" loading="lazy" decoding="async">
-        <figcaption>Rigging up on Sorobon</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/sail-detail.jpg" alt="Close-up of a sail panel and seam" loading="lazy" decoding="async">
-        <figcaption>Panel detail</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/youp-shaka.jpg" alt="A hand pressing a seam on a blue and green HeYYou sail" loading="lazy" decoding="async">
-        <figcaption>Every seam, by hand</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/team-inspect.jpg" alt="Inspecting a finished sail" loading="lazy" decoding="async">
-        <figcaption>Final check</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/youp-rig-yellow.jpg" alt="Youp riding with a yellow HeYYou sail" loading="lazy" decoding="async">
-        <figcaption>Built for the wind it rides</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/youp-setup.jpg" alt="Setting up a rig on the beach" loading="lazy" decoding="async">
-        <figcaption>Setting up</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/youp-rolling.jpg" alt="Rolling a sail for transport" loading="lazy" decoding="async">
-        <figcaption>Rolled and ready</figcaption>
-      </figure>
-      <figure class="hy-shot">
-        <img src="assets/img/photos/handshake.jpg" alt="A handshake over a new sail order" loading="lazy" decoding="async">
-        <figcaption>Built on trust</figcaption>
-      </figure>
+      <!-- Left: sticky intro -->
+      <div class="md:col-span-4">
+        <div class="md:sticky md:top-28">
+          <p class="reveal font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime">In the workshop</p>
+          <h2 class="reveal mt-4 font-display font-semibold tracking-[-0.03em] leading-[1.0] text-4xl md:text-5xl lg:text-6xl">Where the sails are born.</h2>
+          <p class="reveal mt-6 text-muted text-base md:text-lg leading-relaxed max-w-sm">No factory line, no shortcuts. Every sail is measured, cut, and stitched by hand on Bonaire, then tuned on the water it was built for.</p>
+          <p class="reveal mt-8 flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted/70">
+            <span class="inline-flex h-1.5 w-1.5 rounded-full bg-lime"></span>
+            Sorobon &middot; Bonaire
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: scrolling photo grid -->
+      <div class="md:col-span-8">
+        <div class="grid grid-cols-2 gap-4 md:gap-5">
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/youp-sewing.jpg" alt="Youp stitching a sail panel by hand" loading="lazy" decoding="async">
+            <figcaption>Stitched by hand</figcaption>
+          </figure>
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/youp-rig-yellow.jpg" alt="Youp riding with a yellow HeYYou sail" loading="lazy" decoding="async">
+            <figcaption>Built for the wind it rides</figcaption>
+          </figure>
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/sail-detail.jpg" alt="Close-up of a sail panel and seam" loading="lazy" decoding="async">
+            <figcaption>Panel detail</figcaption>
+          </figure>
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/team-rigging.jpg" alt="Rigging a HeYYou sail on the beach" loading="lazy" decoding="async">
+            <figcaption>Rigging up on Sorobon</figcaption>
+          </figure>
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/youp-shaka.jpg" alt="A hand pressing a seam on a blue and green HeYYou sail" loading="lazy" decoding="async">
+            <figcaption>Every seam, by hand</figcaption>
+          </figure>
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/youp-setup.jpg" alt="Setting up a rig on the beach" loading="lazy" decoding="async">
+            <figcaption>Setting up</figcaption>
+          </figure>
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/youp-rolling.jpg" alt="Rolling a sail for transport" loading="lazy" decoding="async">
+            <figcaption>Rolled and ready</figcaption>
+          </figure>
+          <figure class="hy-shot reveal">
+            <img src="assets/img/photos/handshake.jpg" alt="A handshake over a new sail order" loading="lazy" decoding="async">
+            <figcaption>Built on trust</figcaption>
+          </figure>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -341,12 +352,12 @@
 
   <div class="relative mx-auto max-w-[1400px] px-6 md:px-10 py-24 md:py-36">
     <header class="max-w-2xl reveal">
-      <p class="font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime">The complete setup</p>
+      <p class="font-mono uppercase text-[0.72rem] tracking-[0.22em] text-lime">Built to compete</p>
       <h2 id="rig-title" class="mt-5 font-display font-semibold tracking-[-0.03em] leading-[1.0] text-4xl md:text-6xl text-text">
-        HeYYou sail.<br>Flikka board.
+        One sail,<br>built by hand.
       </h2>
       <p class="mt-6 text-base md:text-lg leading-relaxed text-muted">
-        The sail is ours, cut and stitched on Bonaire. Paired with Flikka freestyle boards, it is the exact rig Youp competes on. Nothing here is a prototype. It all gets ridden, and it all gets won on.
+        Measured, cut and stitched on Bonaire, the exact sail Youp competes on. Nothing here is a prototype. It all gets ridden, hard, every single session.
       </p>
     </header>
 
@@ -367,20 +378,17 @@
         </div>
       </article>
 
-      <!-- THE BOARD — Flikka partner tile (lime accent) -->
-      <article aria-labelledby="rig-board-title" data-bento class="reveal group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-lime/60 bg-surface p-7 transition-transform duration-300 will-change-transform hover:-translate-y-1.5 md:col-span-1 md:row-span-1 shadow-[0_0_0_1px_rgba(200,255,0,0.15),0_0_40px_-12px_rgba(200,255,0,0.45)]">
+      <!-- MADE TO SPEC — custom tile (lime accent) -->
+      <article aria-labelledby="rig-spec-title" data-bento class="reveal group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-lime/60 bg-surface p-7 transition-transform duration-300 will-change-transform hover:-translate-y-1.5 md:col-span-1 md:row-span-1 shadow-[0_0_0_1px_rgba(200,255,0,0.15),0_0_40px_-12px_rgba(200,255,0,0.45)]">
         <div>
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-lime/40 bg-lime/10 text-lime" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M3 12c6-9 12-9 18 0-6 9-12 9-18 0Z"/><path d="M12 5v14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
           </span>
-          <p class="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-lime">02 / The board</p>
-          <h3 id="rig-board-title" class="mt-2 font-display text-xl font-semibold tracking-[-0.02em] leading-snug text-text">Flikka freestyle boards</h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted">We make the sails, not the boards. The rig is completed by our partner brand Flikka, the exact deck Youp lands on.</p>
+          <p class="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-lime">02 / Made to spec</p>
+          <h3 id="rig-spec-title" class="mt-2 font-display text-xl font-semibold tracking-[-0.02em] leading-snug text-text">Your size, your colours</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Freestyle, wave or freeride. Bring your dimensions and colourway, or start from Youp's tour spec. Every sail is built one at a time.</p>
         </div>
-        <a href="https://www.instagram.com/flikkaboards/" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.16em] text-lime transition-colors hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime">
-          Boards by @flikkaboards
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
-        </a>
+        <span class="mt-6 inline-flex w-max items-center gap-2 rounded-full border border-lime/40 bg-lime/10 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-lime">Fully custom</span>
       </article>
 
       <!-- BONAIRE-BUILT — ink tile -->
@@ -398,15 +406,15 @@
 
       <!-- THE ATHLETE — photo tile (spans 2 cols) -->
       <article aria-labelledby="rig-athlete-title" data-bento class="reveal group relative flex flex-col justify-end overflow-hidden rounded-3xl border border-line bg-surface p-7 md:p-8 transition-transform duration-300 will-change-transform hover:-translate-y-1.5 md:col-span-2 md:row-span-1 min-h-[16rem]">
-        <img src="assets/img/photos/handshake.jpg" alt="Youp and Bjorn after a session on Bonaire" loading="lazy" class="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-[900ms] ease-out group-hover:scale-105" />
-        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-surface via-surface/75 to-transparent"></div>
+        <img src="assets/img/photos/team-inspect.jpg" alt="Youp and a team rider inspecting a finished HeYYou sail in the workshop" loading="lazy" class="absolute inset-0 h-full w-full object-cover object-center opacity-90 transition-transform duration-[900ms] ease-out group-hover:scale-105" />
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-surface via-surface/55 to-surface/10"></div>
         <div class="relative">
           <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-black/30 text-lime backdrop-blur-sm" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="m6 12 3 3 9-9"/><path d="M4 20h16"/></svg>
           </span>
           <p class="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-lime">04 / The athlete</p>
-          <h3 id="rig-athlete-title" class="mt-2 font-display text-2xl font-semibold tracking-[-0.02em] leading-tight text-text">Ridden and won on</h3>
-          <p class="mt-3 max-w-lg text-sm md:text-base leading-relaxed text-muted">Youp Schmit, PWA World Tour freestyle pro and the inventor of the DoubleAirCulo, rides this exact rig. So does team rider Bjorn Saragoza. The sail on this page is the one on the podium.</p>
+          <h3 id="rig-athlete-title" class="mt-2 font-display text-2xl font-semibold tracking-[-0.02em] leading-tight text-text">Ridden on tour</h3>
+          <p class="mt-3 max-w-lg text-sm md:text-base leading-relaxed text-muted">Youp Schmit, PWA World Tour freestyle pro and inventor of the DoubleAirCulo, rides this exact sail. So does team rider Bjorn Saragoza. What you see here is what they compete on.</p>
         </div>
       </article>
 
@@ -433,7 +441,7 @@
         Talk to Youp about a sail
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
-      <span class="font-mono text-xs uppercase tracking-[0.18em] text-muted">One rig. Ours + Flikka.</span>
+      <span class="font-mono text-xs uppercase tracking-[0.18em] text-muted">Made and ridden on Bonaire.</span>
     </div>
   </div>
 </section>
@@ -507,8 +515,7 @@
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="h-5 w-5"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
             Instagram
           </a>
-          <!-- TODO: swap href to mailto:youp@... once the HeYYou email is live. Points to the form for now. -->
-          <a href="#contact" class="reveal inline-flex items-center gap-2 rounded-full border border-line text-text hover:border-lime hover:text-lime px-6 py-3 font-display font-semibold transition-colors">
+          <a href="mailto:info@heyyou-sails.com?subject=Sail%20enquiry" class="reveal inline-flex items-center gap-2 rounded-full border border-line text-text hover:border-lime hover:text-lime px-6 py-3 font-display font-semibold transition-colors">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" class="h-5 w-5"><path d="M4 6.5 12 12l8-5.5M4.5 5h15a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
             Email
           </a>
@@ -587,15 +594,18 @@
   <div class="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 pt-20 pb-10">
     <div class="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
       <div>
-        <a href="#top" class="font-display text-2xl font-bold text-text">He<span class="text-lime">Y</span>You</a>
+        <a href="#top" class="inline-flex items-center gap-3">
+          <img src="assets/img/logo-white.png" alt="HeYYou logo" class="h-9 w-auto" />
+          <span class="font-display text-2xl font-bold text-text">He<span class="text-lime">Y</span>You</span>
+        </a>
         <p class="mt-4 max-w-xs text-sm text-muted">Custom windsurfing sails, cut and stitched by hand on Bonaire.</p>
       </div>
       <div>
         <p class="font-mono uppercase text-[0.7rem] tracking-[0.2em] text-muted">Explore</p>
         <ul class="mt-4 space-y-2 text-sm text-muted">
-          <li><a href="#make" class="hover:text-lime transition-colors">What we make</a></li>
+          <li><a href="#maker" class="hover:text-lime transition-colors">The maker</a></li>
           <li><a href="#craft" class="hover:text-lime transition-colors">The craft</a></li>
-          <li><a href="#action" class="hover:text-lime transition-colors">In action</a></li>
+          <li><a href="#action" class="hover:text-lime transition-colors">Workshop</a></li>
           <li><a href="#contact" class="hover:text-lime transition-colors">Order a sail</a></li>
         </ul>
       </div>
@@ -607,12 +617,15 @@
         </ul>
       </div>
     </div>
-    <div class="mt-16 select-none" aria-hidden="true">
-      <div class="font-display font-bold leading-none tracking-[-0.04em] text-[clamp(3rem,15vw,12rem)]">He<span class="text-lime">Y</span>You</div>
+    <div class="-mt-14 flex justify-end select-none md:-mt-20" aria-hidden="true">
+      <img src="assets/img/logo-white.png" alt="" class="h-[clamp(9rem,24vw,19rem)] w-auto" />
     </div>
     <div class="mt-8 flex flex-col gap-3 border-t border-line pt-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
-      <p>Footage by @vividvprod, @kumamovie, @oneosevenmediahouse, @floristils. Boards by @flikkaboards.</p>
+      <p>Footage by @vividvprod, @kumamovie, @oneosevenmediahouse, @floristils.</p>
       <p>&copy; <span id="year"></span> HeYYou Sails. Made on Bonaire, Dutch Caribbean.</p>
+    </div>
+    <div class="mt-6 text-center font-mono text-[0.7rem] uppercase tracking-[0.2em] text-muted/70">
+      Made by <span class="text-lime/80">saltycodestudio</span>
     </div>
   </div>
 </footer>

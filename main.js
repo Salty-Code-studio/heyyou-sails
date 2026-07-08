@@ -168,8 +168,8 @@ function initCraft() {
       ease: 'none',
       scrollTrigger: {
         trigger: next,
-        start: 'top 42%',      // hold full brightness until next card is 42% up the viewport
-        end: 'top top',        // next card reaches the pinned position
+        start: 'top 42%',
+        end: 'top top',
         scrub: true,
         invalidateOnRefresh: true,
       },
@@ -448,6 +448,77 @@ function initContact(){
       field("name").focus();
     });
   }
+}
+
+/* Sticky Grid Scroll — pinned 3-column zoom grid (saltycodestudio-parts/motion/sticky-grid-scroll).
+   Lenis is already wired to ScrollTrigger by the global init, so we pass {lenis:false}. */
+function initStickyGridScroll(root, userOptions){
+  root = root || document;
+  var gsap = window.gsap;
+  if (!gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(window.ScrollTrigger);
+  var opts = Object.assign({
+    scrollLength: 2.6, zoom: 2.05, columnOffset: 18,
+    stagger: 0.06, revealStart: 0.7, revealEnd: 0.86
+  }, userOptions || {});
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  root.querySelectorAll('.sgs').forEach(function(section){
+    var stage = section.querySelector('.sgs-stage');
+    var grid = section.querySelector('.sgs-grid');
+    var content = section.querySelector('[data-sgs-content]');
+    var cells = gsap.utils.toArray(section.querySelectorAll('.sgs-cell'));
+    var leftCol = section.querySelector('[data-col="left"]');
+    var centerCol = section.querySelector('[data-col="center"]');
+    var rightCol = section.querySelector('[data-col="right"]');
+    if (!stage || !grid || !cells.length) return;
+
+    var fromTop = [], fromBottom = [];
+    gsap.utils.toArray(section.querySelectorAll('.sgs-col')).forEach(function(col){
+      var colCells = gsap.utils.toArray(col.querySelectorAll('.sgs-cell'));
+      if (col === centerCol) fromTop = fromTop.concat(colCells);
+      else fromBottom = fromBottom.concat(colCells);
+    });
+
+    if (reduce) {
+      gsap.set(cells, { autoAlpha: 1, yPercent: 0, scale: 1 });
+      gsap.set(grid, { scale: 1 });
+      if (content) gsap.set(content, { autoAlpha: 1, y: 0 });
+      return;
+    }
+
+    gsap.set(fromTop, { yPercent: -160, autoAlpha: 0, scale: 0.92 });
+    gsap.set(fromBottom, { yPercent: 160, autoAlpha: 0, scale: 0.92 });
+    gsap.set(grid, { scale: 0.86, transformOrigin: '50% 50%' });
+    if (content) gsap.set(content, { autoAlpha: 0, y: 28 });
+
+    var tl = gsap.timeline({
+      defaults: { ease: 'none' },
+      scrollTrigger: {
+        trigger: section, start: 'top top',
+        end: function(){ return '+=' + window.innerHeight * opts.scrollLength; },
+        scrub: 1, pin: stage, anticipatePin: 1, invalidateOnRefresh: true
+      }
+    });
+
+    tl.to(fromTop, { yPercent: 0, autoAlpha: 1, scale: 1, duration: 1.1,
+      ease: 'power2.out', stagger: { each: opts.stagger, from: 'start' } }, 0);
+    tl.to(fromBottom, { yPercent: 0, autoAlpha: 1, scale: 1, duration: 1.1,
+      ease: 'power2.out', stagger: { each: opts.stagger, from: 'end' } }, 0.12);
+
+    tl.to(grid, { scale: opts.zoom, duration: 1.6, ease: 'power1.inOut' }, 0.9);
+    if (leftCol) tl.to(leftCol, { xPercent: -opts.columnOffset, duration: 1.6, ease: 'power1.inOut' }, 0.9);
+    if (rightCol) tl.to(rightCol, { xPercent: opts.columnOffset, duration: 1.6, ease: 'power1.inOut' }, 0.9);
+    if (centerCol) tl.to(centerCol, { yPercent: -4, duration: 1.6, ease: 'power1.inOut' }, 0.9);
+
+    if (content) {
+      var total = tl.duration() || 1;
+      var inAt = opts.revealStart * total;
+      var outAt = opts.revealEnd * total;
+      tl.to(content, { autoAlpha: 1, y: 0, duration: Math.max(0.001, outAt - inAt), ease: 'power2.out' }, inAt);
+      tl.to(grid, { filter: 'brightness(0.5)', duration: outAt - inAt }, inAt);
+    }
+  });
 }
 
 /* ===== run section inits ===== */
