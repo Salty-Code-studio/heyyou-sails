@@ -86,8 +86,25 @@ a{color:inherit;text-decoration:none}
   width: 100%;
   overflow: hidden;
   transform-origin: center top;
-  will-change: transform, filter;
+  /* Only promote transform. Animating `filter` here caused a black-flash flicker
+     as the layer re-rasterized mid-scroll; the dim is now a composited overlay. */
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.7);
+}
+/* Dim overlay scrubbed by GSAP (via --dim) instead of a filter — opacity composites
+   cleanly, so covered cards darken without flickering or flashing black. */
+#craft .craft-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+  background: #06060a;
+  opacity: var(--dim, 0);
 }
 #craft .craft-card:last-child {
   margin-bottom: 0;
@@ -121,44 +138,6 @@ a{color:inherit;text-decoration:none}
 }
 @media (prefers-reduced-motion: reduce) {
   #craft .craft-card { transition: none; }
-}
-
-/* In the workshop — sticky intro + scrolling photo grid */
-#action .hy-shot {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: #141418;
-}
-#action .hy-shot img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-#action .hy-shot:hover img { transform: scale(1.05); }
-
-#action .hy-shot figcaption {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  padding: 1.75rem 0.9rem 0.8rem;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  color: #f4f4f5;
-  background: linear-gradient(to top, rgba(6, 6, 8, 0.88), transparent);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-#action .hy-shot:hover figcaption,
-#action .hy-shot:focus-within figcaption { opacity: 1; transform: none; }
-@media (hover: none) { #action .hy-shot figcaption { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) {
-  #action .hy-shot img, #action .hy-shot figcaption { transition: none; }
 }
 
 /* --- RIG section: reveal + stagger (safe no-op if shell already defines these) --- */

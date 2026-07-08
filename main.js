@@ -159,12 +159,13 @@ function initCraft() {
 
     const next = cards[i + 1];
 
-    // As `next` rises to cover `card`, gently shrink + dim `card`. The dim only
-    // starts once `next` is well up the viewport, so the card you are reading
-    // stays bright and legible, and the receded state never goes dark.
+    // As `next` rises to cover `card`, gently shrink + dim `card`. The dim is a
+    // composited overlay opacity (--dim) rather than a CSS filter, which removes
+    // the black-flash flicker the filter caused. The dim only starts once `next`
+    // is well up the viewport, so the card you are reading stays bright.
     gsap.to(card, {
       scale: 0.97,
-      filter: 'brightness(0.86)',
+      '--dim': 0.5,
       ease: 'none',
       scrollTrigger: {
         trigger: next,
@@ -174,92 +175,6 @@ function initCraft() {
         invalidateOnRefresh: true,
       },
     });
-  });
-}
-
-function initAction() {
-  const gsap = window.gsap;
-  const section = document.getElementById('action');
-  if (!section) return;
-
-  const track = section.querySelector('.hy-hscroll-track');
-  const panels = track ? Array.prototype.slice.call(track.querySelectorAll('.hy-hscroll-panel')) : [];
-  const videos = Array.prototype.slice.call(section.querySelectorAll('.hy-vid'));
-  if (!track || panels.length === 0) return;
-
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // --- Autoplay each video when it (or the section) enters the viewport ---
-  // Adapted from the part's motion intent: media should be live as it sweeps past.
-  const playSafe = function (v) {
-    const p = v.play();
-    if (p && typeof p.catch === 'function') p.catch(function () {});
-  };
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        const v = entry.target;
-        if (entry.isIntersecting) playSafe(v);
-        else { try { v.pause(); } catch (e) {} }
-      });
-    }, { root: null, threshold: 0.15 });
-    videos.forEach(function (v) { io.observe(v); });
-  } else {
-    videos.forEach(playSafe);
-  }
-  // Also kick playback once the whole section is on screen (covers the pinned case
-  // where a card may not individually cross the observer threshold on some browsers).
-  if ('IntersectionObserver' in window) {
-    const sectionIo = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) videos.forEach(playSafe);
-      });
-    }, { threshold: 0.05 });
-    sectionIo.observe(section);
-  }
-
-  if (prefersReduced || typeof gsap === 'undefined') return; // CSS handles the non-pinned fallback
-  if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
-
-  // --- Horizontal sweep: vertical scroll translates the over-wide track ---
-  // Distance = track overflow beyond the viewport width (recomputed on refresh).
-  const getScrollDistance = function () {
-    return Math.max(0, track.scrollWidth - window.innerWidth);
-  };
-
-  const tween = gsap.to(track, {
-    x: function () { return -getScrollDistance(); },
-    ease: 'none',
-    scrollTrigger: {
-      trigger: section,
-      start: 'top top',
-      end: function () { return '+=' + getScrollDistance(); },
-      scrub: 1,
-      pin: true,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-    },
-  });
-
-  // --- Per-panel parallax mapped inside the horizontal tween (containerAnimation) ---
-  panels.forEach(function (panel) {
-    const media = panel.querySelector('[data-hscroll-parallax]');
-    if (!media) return;
-    gsap.fromTo(
-      media,
-      { xPercent: -6 },
-      {
-        xPercent: 6,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: panel,
-          containerAnimation: tween,
-          start: 'left right',
-          end: 'right left',
-          scrub: true,
-        },
-      }
-    );
   });
 }
 
@@ -526,7 +441,6 @@ try{ if(typeof initHero === 'function') initHero(); }catch(e){ console.error('in
 try{ if(typeof initMake === 'function') initMake(); }catch(e){ console.error('initMake', e); }
 try{ if(typeof initMaker === 'function') initMaker(); }catch(e){ console.error('initMaker', e); }
 try{ if(typeof initCraft === 'function') initCraft(); }catch(e){ console.error('initCraft', e); }
-try{ if(typeof initAction === 'function') initAction(); }catch(e){ console.error('initAction', e); }
 try{ if(typeof initRig === 'function') initRig(); }catch(e){ console.error('initRig', e); }
 try{ if(typeof initLimited === 'function') initLimited(); }catch(e){ console.error('initLimited', e); }
 try{ if(typeof initContact === 'function') initContact(); }catch(e){ console.error('initContact', e); }
